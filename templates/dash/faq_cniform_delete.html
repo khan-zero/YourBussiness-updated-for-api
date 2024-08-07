@@ -1,0 +1,22 @@
+{% extends 'dash/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="h3 mb-4 text-gray-800">Oʻchirishni tasdiqlang</h1>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <p>Bu FAQ ni o'chirishga rozimisiz?</p>
+            <strong>Question:</strong> {{ faq.question }}<br>
+            <strong>Answer:</strong> {{ faq.answer }}
+
+            <form method="post" style="margin-top: 20px;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">O'chirish</button>
+                <a href="{% url 'faq_list' %}" class="btn btn-secondary">Bekor qilish</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

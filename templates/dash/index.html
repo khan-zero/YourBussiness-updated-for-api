@@ -1,0 +1,50 @@
+{% extends "dash/base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Boshqaruv paneli</h1>
+
+    <!-- Portfolio Section -->
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Portfel boshqaruvi</h6>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'portfolio_list' %}" class="btn btn-primary">Portfelni ko'rish</a>
+                    <a href="{% url 'portfolio_create' %}" class="btn btn-success">Portfolio qo'shish</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Member Section -->
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">A'zolarni boshqarish</h6>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'member_list' %}" class="btn btn-primary">A'zolarni ko'rish</a>
+                    <a href="{% url 'member_create' %}" class="btn btn-success">A'zo qo'shish</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Tez tez beriladigan savollarni tahrirlash</h6>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'faq_list' %}" class="btn btn-primary">Savol va Javoblarni ko'rish</a>
+                    <a href="{% url 'faq_create' %}" class="btn btn-success">Savol va Javoblar qo'shish</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "dash/base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">A'zolar ro'yhati</h1>
+
+    <!-- Member Table -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">A'zolar</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Ism</th>
+                            <th>Yo'nalish</th>
+                            <th>Bio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for member in members %}
+                        <tr>
+                            <td style="color: #333;">
+                                {{ member.full_name }}
+                            </td>
+                            <td style="color: #333;">
+                                {{ member.position }}</td>
+                            <td>
+                                <a href="{% url 'member_update' member.pk %}" class="btn btn-warning btn-sm">O'zgartirish</a>
+                                <form action="{% url 'member_delete' member.pk %}" method="post" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm">O'chirish</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

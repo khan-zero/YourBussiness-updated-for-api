@@ -1,0 +1,43 @@
+{% extends 'dash/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="h3 mb-4 text-gray-800">FAQ ro'yhati</h1>
+    <a href="{% url 'faq_create' %}" class="btn btn-primary mb-3">yangi FAQ yaratish</a>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">FAQlar</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Savol</th>
+                            <th>Javob</th>
+                            <th>Harakat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for faq in faqs %}
+                        <tr>
+                            <td>{{ faq.question }}</td>
+                            <td>{{ faq.answer }}</td>
+                            <td>
+                                <a href="{% url 'faq_update' faq.pk %}" class="btn btn-warning btn-sm">Tahrirlash</a>
+                                <form action="{% url 'faq_delete' faq.pk %}" method="post" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm">O'chirish</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

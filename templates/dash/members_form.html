@@ -1,0 +1,18 @@
+{% extends "dash/base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <!-- Member Form -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Yangilash</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
